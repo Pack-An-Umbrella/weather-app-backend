@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Pack-An-Umbrella/weather-app-backend/issues"
   },
-  "homepage": "https://github.com/Pack-An-Umbrella/weather-app-backend#readme"
+  "homepage": "https://github.com/Pack-An-Umbrella/weather-app-backend#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }
