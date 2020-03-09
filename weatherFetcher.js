@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 //get request for day and night weather values from Met Office API
 
-fetch('placeholder_API_key')
+fetch('placeholder')
     .then(res => res.json())
     .then(json => {
         return {
@@ -40,7 +40,7 @@ const convertToHumanReadable = (forecastObject) => {
       visibility: { name: 'V', units: '', humanText: 'Visibility', value: forecastObject.V },
       windDirection: { name: 'D', units: 'compass', humanText: 'Wind Direction', value: forecastObject.D },
       windSpeed: { name: 'S', units: 'mph', humanText: 'Wind Speed', value: forecastObject.S },
-      maxUVIndex: { name: 'U', units: '', humanText: 'Max UV Index', value: forecastObject.U },
+      maxUVIndex: { name: 'U', units: '', humanText: 'Max UV Index', value: forecastObject.U, humanReadableValue: convertUV(forecastObject.U) },
       weather: { name: 'W', units: '', humanText: 'Weather Type', value: forecastObject.W, humanReadableValue: covertWeather(forecastObject.W)},
       precipationDay: { name: 'PPd', units: '%', humanText: 'Precipitation Probability Day', value: forecastObject.Ppd },
       precipationNight: { name: 'PPn', units: '%', humanText: 'Precipitation Probability Night', value: forecastObject.Ppn }
@@ -89,5 +89,26 @@ const covertWeather = (weatherCode) => {
     return weatherMapping[weatherCode];
     
 }
+
+
+// mapping of UV codes to human-readable values as per Met Office API documentation
+
+const convertUV = (uvCode) => {
+    const uvMapping = {
+        1: "Low exposure",
+        2: "Low exposure",
+        3: "Moderate exposure",
+        4: "Moderate exposure",
+        5: "Moderate exposure",
+        6: "High exposure",
+        7: "High exposure",
+        8: "Very high exposure",
+        9: "Very high exposure",
+        10: "Extreme exposure",
+        11: "Extreme exposure"
+    }
+    return uvMapping[uvCode];
+}
+
 
 
