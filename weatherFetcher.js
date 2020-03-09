@@ -1,9 +1,12 @@
 const fetch = require('node-fetch');
+require('dotenv').config();
 
 
 //get request for day and night weather values from Met Office API
 
-fetch('placeholder')
+const api_key = process.env.API_KEY;
+
+fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/99095?res=daily&key=${api_key}`)
     .then(res => res.json())
     .then(json => {
         return {
