@@ -23,6 +23,13 @@ fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/99095?re
     .then(readable => console.log(readable));
 
 
+    // test three hours response
+
+
+    // fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3840?res=3hourly&$key=${api_key}`)
+    //     .then(res => res.json())
+
+
     // .then(json => console.log(json.SiteRep.DV.Location.Period[0].Rep[0]));
 
     // .then(json => console.log(json.SiteRep.Wx.Param));
