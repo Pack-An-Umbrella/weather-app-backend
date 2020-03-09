@@ -12,45 +12,30 @@ fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${loc_id
     .then(json => {
         return {
             nextThreeHours: json.SiteRep.DV.Location.Period[0].Rep[0],
-            nextSixHours: json.SiteRep.DV.Location.Period[0].Rep[1]
+            // nextSixHours: json.SiteRep.DV.Location.Period[0].Rep[1]
         }
         })
     .then(json => {
         return {
-            nextThreeHours: convertToHumanReadable(json.day),
-            nextSixHours: convertToHumanReadable(json.night),
+            nextThreeHours: convertToHumanReadable(json.nextThreeHours),
+            // nextSixHours: convertToHumanReadable(json.nextSixHours),
         }
     })
     .then(readable => console.log(readable));
 
 
-    // test three hours response
-
-
-    // fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/3840?res=3hourly&$key=${api_key}`)
-    //     .then(res => res.json())
-
-
-    // .then(json => console.log(json.SiteRep.DV.Location.Period[0].Rep[0]));
-
-    // .then(json => console.log(json.SiteRep.Wx.Param));
-
-// function to connect API weather values with a human-readable key 
-
-
 const convertToHumanReadable = (forecastObject) => {
     return {
-      feelsLikeDayMaximumTemp : { name: 'F', units: 'C', humanText: 'Feels Like Temperature', value: forecastObject.F },
-      windGust: { name: 'G', units: 'mph', humanText: 'Wind Gust', value: forecastObject.G },
-      screenRelativeHumidity: { name: 'H', units: '%', humanText: 'Screen Relative Humidity', value: forecastObject.H },
+      feelsLikeTemperature : { name: 'F', units: 'C', humanText: 'Feels Like Temperature', value: forecastObject.F },
+      // windGust: { name: 'G', units: 'mph', humanText: 'Wind Gust', value: forecastObject.G },
+      // screenRelativeHumidity: { name: 'H', units: '%', humanText: 'Screen Relative Humidity', value: forecastObject.H },
       temperature: { name: 'T', units: 'C', humanTest: 'Temperature', value: forecastObject.T },
-      visibility: { name: 'V', units: '', humanText: 'Visibility', value: forecastObject.V },
-      windDirection: { name: 'D', units: 'compass', humanText: 'Wind Direction', value: forecastObject.D },
-      windSpeed: { name: 'S', units: 'mph', humanText: 'Wind Speed', value: forecastObject.S },
+      // visibility: { name: 'V', units: '', humanText: 'Visibility', value: forecastObject.V },
+      // windDirection: { name: 'D', units: 'compass', humanText: 'Wind Direction', value: forecastObject.D },
+      // windSpeed: { name: 'S', units: 'mph', humanText: 'Wind Speed', value: forecastObject.S },
       maxUVIndex: { name: 'U', units: '', humanText: 'Max UV Index', value: forecastObject.U, humanReadableValue: convertUV(forecastObject.U) },
       weather: { name: 'W', units: '', humanText: 'Weather Type', value: forecastObject.W, humanReadableValue: convertWeather(forecastObject.W)},
-      precipationNight: { name: 'PP', units: '%', humanText: 'Precipitation Probability', value: forecastObject.Pp }
-
+      precipationProbability: { name: 'PP', units: '%', humanText: 'Chance of Rain', value: forecastObject.Pp }
     }
 }
 
