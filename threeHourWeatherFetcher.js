@@ -48,16 +48,15 @@ const convertToHumanReadable = (forecastObject) => {
       windDirection: { name: 'D', units: 'compass', humanText: 'Wind Direction', value: forecastObject.D },
       windSpeed: { name: 'S', units: 'mph', humanText: 'Wind Speed', value: forecastObject.S },
       maxUVIndex: { name: 'U', units: '', humanText: 'Max UV Index', value: forecastObject.U, humanReadableValue: convertUV(forecastObject.U) },
-      weather: { name: 'W', units: '', humanText: 'Weather Type', value: forecastObject.W, humanReadableValue: covertWeather(forecastObject.W)},
-      precipationDay: { name: 'PPd', units: '%', humanText: 'Precipitation Probability Day', value: forecastObject.Ppd },
-      precipationNight: { name: 'PPn', units: '%', humanText: 'Precipitation Probability Night', value: forecastObject.Ppn }
+      weather: { name: 'W', units: '', humanText: 'Weather Type', value: forecastObject.W, humanReadableValue: convertWeather(forecastObject.W)},
+      precipationNight: { name: 'PP', units: '%', humanText: 'Precipitation Probability', value: forecastObject.Pp }
 
     }
 }
 
 //mapping of significant weather codes to human-readable values as per Met Office API documentation
 
-const covertWeather = (weatherCode) => {
+const convertWeather = (weatherCode) => {
     const weatherMapping = {
         NA: "Not available",
         0: "Clear night",
