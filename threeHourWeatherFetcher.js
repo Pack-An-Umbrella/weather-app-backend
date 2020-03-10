@@ -86,6 +86,7 @@ const convertWeather = (weatherCode) => {
 
 const convertUV = (uvCode) => {
     const uvMapping = {
+        0: "Low exposure",
         1: "Low exposure",
         2: "Low exposure",
         3: "Moderate exposure",
