@@ -2,28 +2,36 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 
-//get request for day and night weather values from Met Office API
+//get request for day and night weather values from Met Office API, and use location ID from another API
 
 const api_key = process.env.API_KEY;
 const loc_id = process.env.LOC_ID;
+
+// Comment out the time periods unwanted. 
+// I.E. to only fetch data for next three hours, comment out lines 18-20 AND 26 - 28 
 
 fetch(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${loc_id}?res=3hourly&key=${api_key}`)
     .then(res => res.json())
     .then(json => {
         return {
             nextThreeHours: json.SiteRep.DV.Location.Period[0].Rep[0],
-            // nextSixHours: json.SiteRep.DV.Location.Period[0].Rep[1]
+            inSixHours: json.SiteRep.DV.Location.Period[0].Rep[1],
+            inNineHours: json.SiteRep.DV.Location.Period[0].Rep[2],
+            inTwelveHours: json.SiteRep.DV.Location.Period[0].Rep[3]
         }
         })
     .then(json => {
         return {
             nextThreeHours: convertToHumanReadable(json.nextThreeHours),
-            // nextSixHours: convertToHumanReadable(json.nextSixHours),
+            inSixHours: convertToHumanReadable(json.inSixHours),
+            inNineHours: convertToHumanReadable(json.inNineHours),
+            inTwelveHours: convertToHumanReadable(json.inTwelveHours)
         }
     })
     .then(readable => console.log(readable));
 
 
+// Comment out unwanted forecast objects
 const convertToHumanReadable = (forecastObject) => {
     return {
       feelsLikeTemperature : { name: 'F', units: 'C', humanText: 'Feels Like Temperature', value: forecastObject.F },
