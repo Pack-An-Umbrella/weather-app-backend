@@ -5,7 +5,7 @@
 - Create an `.env` file (same level as .json and .js files)
 - Within the `.env` file write this:
 
-    API_KEY = XXXX
+    API_KEY = XXXX<br>
     LOC_ID = 3772
 
 The LOC_ID is hardcoded for now, but once we have the submit button connected to an API, this will change.
