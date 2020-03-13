@@ -1,14 +1,14 @@
 'use strict';
 
-const cors = require('cors');
-app.use(cors()); 
+// const cors = require('cors');
+// app.use(cors()); 
 
-module.exports.hello = async event => {
+module.exports.weather = async event => {
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
+        message: `What's the weather and do I need to pack an umbrella?`,
         input: event,
       },
       null,

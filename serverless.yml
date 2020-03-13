@@ -35,8 +35,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  weather:
-    handler: threeHourWeatherFetcher.weather
+  weather: 
+    handler: handler.weather
     events:
       - http:
          path: weather
