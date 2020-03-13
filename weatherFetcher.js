@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
 require('dotenv').config();
+const cors = require('cors');
+app.use(cors()); 
 
 
 //get request for day and night weather values from Met Office API

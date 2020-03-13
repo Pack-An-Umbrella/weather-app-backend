@@ -1,5 +1,8 @@
 'use strict';
 
+const cors = require('cors');
+app.use(cors()); 
+
 module.exports.hello = async event => {
   return {
     statusCode: 200,
