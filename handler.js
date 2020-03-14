@@ -26,21 +26,21 @@ const threeHourFetcher = (api_url) => {
     .then(res => res.json())
         .then(json => {
             return {
-                nextThreeHours: json.SiteRep.DV.Location.Period[0].Rep[0],
-                inSixHours: json.SiteRep.DV.Location.Period[0].Rep[1],
-                inNineHours: json.SiteRep.DV.Location.Period[0].Rep[2],
-                inTwelveHours: json.SiteRep.DV.Location.Period[0].Rep[3]
+                nextThreeHours: json.SiteRep.DV.Location.Period[0].Rep[0]
+                // inSixHours: json.SiteRep.DV.Location.Period[0].Rep[1],
+                // inNineHours: json.SiteRep.DV.Location.Period[0].Rep[2],
+                // inTwelveHours: json.SiteRep.DV.Location.Period[0].Rep[3]
             }
         })
         .then(json => {
+          console.log(JSON.stringify(json));
             return {
-                nextThreeHours: convertToHumanReadable(json.nextThreeHours),
-                inSixHours: convertToHumanReadable(json.inSixHours),
-                inNineHours: convertToHumanReadable(json.inNineHours),
-                inTwelveHours: convertToHumanReadable(json.inTwelveHours)
+                nextThreeHours: convertToHumanReadable(json.nextThreeHours)
+                // inSixHours: convertToHumanReadable(json.inSixHours),
+                // inNineHours: convertToHumanReadable(json.inNineHours),
+                // inTwelveHours: convertToHumanReadable(json.inTwelveHours)
             }
         });
-
 }
 const convertToHumanReadable = (forecastObject) => {
   return {
