@@ -14,3 +14,10 @@ The LOC_ID is hardcoded for now, but once we have the submit button connected to
 
 API_KEY will be given to you in a non-public way.
 
+
+## How to run the app
+
+First make sure your dependencies are up to date, to do this:
+```npm install```
+
+
