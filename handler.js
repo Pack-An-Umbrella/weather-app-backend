@@ -12,12 +12,12 @@ app.use(cors());
 // module.exports.weather = async event => {
   // return {
 
-    const api_key = process.env.API_KEY,
-    const loc_id =  process.env.LOC_ID
+    const api_key = process.env.API_KEY;
+    const loc_id =  process.env.LOC_ID;
     
     //One way
     app.get ('/weather/loc_id', async (req, res) => {
-      const loc_id = request.params.id;
+      loc_id = request.params.id;
       const api_url = `http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${loc_id}?res=3hourly&key=${api_key}`;
       const fetch_response = await fetch (api_url);
       const json = await fetch_response.json();
