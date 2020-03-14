@@ -23,5 +23,8 @@
     "node-fetch": "^2.6.0",
     "serverless": "^1.66.0",
     "serverless-http": "^2.3.2"
+  },
+  "devDependencies": {
+    "serverless-dotenv-plugin": "^2.3.2"
   }
 }
