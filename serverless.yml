@@ -33,7 +33,7 @@ functions:
     handler: handler.weather
     events:
       - http:
-         path: weather
+         path: weather/{location}
          method: get
          cors: true
 # 

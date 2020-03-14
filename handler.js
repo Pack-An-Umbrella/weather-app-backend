@@ -11,8 +11,8 @@ console.log("Express has started");
 const api_key = process.env.API_KEY;
     
 
-app.get ('/weather', async (req, res) => {
-  const location = req.query.location;
+app.get ('/weather/:location', async (req, res) => {
+  const location = req.params.location;
   console.log(`Serving GET request for location: ${location}`);
   const api_url = `http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${location}?res=3hourly&key=${api_key}`;
   const fetch_response = await fetch (api_url);
