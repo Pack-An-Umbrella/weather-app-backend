@@ -30,8 +30,8 @@ functions:
     events:
       - http:
          path: weather
-         method: get 
-         cors: true 
+         method: get
+         cors: true
 # 
 #      - cloudwatchEvent:
 #          event:
