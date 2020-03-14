@@ -146,7 +146,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/weather-app-backend/dev/1584173357931-2020-03-14T08:09:17.931Z/weather-app-backend.zip"
+          "S3Key": "serverless/weather-app-backend/dev/1584196789919-2020-03-14T14:39:49.919Z/weather-app-backend.zip"
         },
         "FunctionName": "weather-app-backend-dev-weather",
         "Handler": "handler.weather",
@@ -165,14 +165,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "WeatherLambdaVersioncHRIfgon2uRifgTXPo52hfcCmQDeoR8Mqsy3cVyeWVE": {
+    "WeatherLambdaVersionYjXfvO8vxtLLnyxWLABqDGR2cXTbeIvdKi74FjN7usU": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WeatherLambdaFunction"
         },
-        "CodeSha256": "r4qJ/UVBWLevQ+S/OdutiFdpJguYr9rdYGqAk0J8Chg="
+        "CodeSha256": "EniLHYAOMzVxUTPZKzpn7lCNC93MAfIpsw0A3ioMsvI="
       }
     },
     "ApiGatewayRestApi": {
@@ -290,7 +290,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1584173343872": {
+    "ApiGatewayDeployment1584196774222": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -350,7 +350,7 @@
     "WeatherLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WeatherLambdaVersioncHRIfgon2uRifgTXPo52hfcCmQDeoR8Mqsy3cVyeWVE"
+        "Ref": "WeatherLambdaVersionYjXfvO8vxtLLnyxWLABqDGR2cXTbeIvdKi74FjN7usU"
       }
     },
     "ServiceEndpoint": {

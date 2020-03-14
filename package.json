@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/Pack-An-Umbrella/weather-app-backend#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
-    "serverless": "^1.66.0"
+    "serverless": "^1.66.0",
+    "serverless-http": "^2.3.2"
   }
 }
