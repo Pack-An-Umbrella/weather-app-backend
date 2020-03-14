@@ -160,7 +160,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/weather-app-backend/dev/1584134075416-2020-03-13T21:14:35.416Z/weather-app-backend.zip"
+                "S3Key": "serverless/weather-app-backend/dev/1584173357931-2020-03-14T08:09:17.931Z/weather-app-backend.zip"
               },
               "FunctionName": "weather-app-backend-dev-weather",
               "Handler": "handler.weather",
@@ -179,14 +179,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "WeatherLambdaVersionJiDP1H5QrcmbEVmx4WBgt5RQuwzNngpyuC62fZEo": {
+          "WeatherLambdaVersioncHRIfgon2uRifgTXPo52hfcCmQDeoR8Mqsy3cVyeWVE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "WeatherLambdaFunction"
               },
-              "CodeSha256": "6zmL5f86chrf1rt71Nb8gPbypwWvGOb8SRLbBxfrpB0="
+              "CodeSha256": "r4qJ/UVBWLevQ+S/OdutiFdpJguYr9rdYGqAk0J8Chg="
             }
           },
           "ApiGatewayRestApi": {
@@ -304,7 +304,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1584134058671": {
+          "ApiGatewayDeployment1584173343872": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -364,7 +364,7 @@
           "WeatherLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "WeatherLambdaVersionJiDP1H5QrcmbEVmx4WBgt5RQuwzNngpyuC62fZEo"
+              "Ref": "WeatherLambdaVersioncHRIfgon2uRifgTXPo52hfcCmQDeoR8Mqsy3cVyeWVE"
             }
           },
           "ServiceEndpoint": {
@@ -499,7 +499,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "WeatherLambdaVersionJiDP1H5QrcmbEVmx4WBgt5RQuwzNngpyuC62fZEo"
+        "versionLogicalId": "WeatherLambdaVersioncHRIfgon2uRifgTXPo52hfcCmQDeoR8Mqsy3cVyeWVE"
       }
     },
     "serviceFilename": "serverless.yml",
@@ -507,10 +507,10 @@
     "layers": {},
     "isDashboardMonitoringPreconfigured": true,
     "isDashboardAppPreconfigured": false,
-    "artifact": "/Users/gaurikangai/step_into_tech_course/weather-app-backend/.serverless/weather-app-backend.zip"
+    "artifact": "/Users/gaurikangai/step_into_tech_course/weather-app-playground/weather-app-backend-playground/.serverless/weather-app-backend.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/weather-app-backend/dev/1584134075416-2020-03-13T21:14:35.416Z",
+    "artifactDirectoryName": "serverless/weather-app-backend/dev/1584173357931-2020-03-14T08:09:17.931Z",
     "artifact": "weather-app-backend.zip"
   }
 }
