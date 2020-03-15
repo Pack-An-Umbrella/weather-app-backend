@@ -2,7 +2,7 @@
 
 ## Welcome - Getting Started to 'Pack An Umbrella' API
 
-'Pack An Umbrella' application relies on real-time weather information provided by open data sets from the Met Office, accessed through their DataPoint API. 
+'Pack An Umbrella' application relies on three-hourly weather information provided by open data sets from the Met Office, accessed through their DataPoint API. 
 
 Our API hosts calls to Met Office API, and helps to translate that third party data in order to give human readable weather recommendations to our end-user.
 
