@@ -146,7 +146,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/weather-app-backend/dev/1584134075416-2020-03-13T21:14:35.416Z/weather-app-backend.zip"
+          "S3Key": "serverless/weather-app-backend/dev/1584216720357-2020-03-14T20:12:00.357Z/weather-app-backend.zip"
         },
         "FunctionName": "weather-app-backend-dev-weather",
         "Handler": "handler.weather",
@@ -158,21 +158,27 @@
           ]
         },
         "Runtime": "nodejs12.x",
-        "Timeout": 6
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "API_KEY": "fefe3677-6419-4792-bdf8-95f77d36453f",
+            "LOC_ID": "3772"
+          }
+        }
       },
       "DependsOn": [
         "WeatherLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "WeatherLambdaVersionJiDP1H5QrcmbEVmx4WBgt5RQuwzNngpyuC62fZEo": {
+    "WeatherLambdaVersionBsqcLUlvLNnhFsE3BD7ZsiEHuWdifFurHaCs3fPo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "WeatherLambdaFunction"
         },
-        "CodeSha256": "6zmL5f86chrf1rt71Nb8gPbypwWvGOb8SRLbBxfrpB0="
+        "CodeSha256": "/oh5uAGPXJxAr/93IQlHczYUaypv7FY7rPy6KP4+/cM="
       }
     },
     "ApiGatewayRestApi": {
@@ -202,7 +208,19 @@
         }
       }
     },
-    "ApiGatewayMethodWeatherOptions": {
+    "ApiGatewayResourceWeatherLocationVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceWeather"
+        },
+        "PathPart": "{location}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodWeatherLocationVarOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "AuthorizationType": "NONE",
@@ -240,20 +258,20 @@
           ]
         },
         "ResourceId": {
-          "Ref": "ApiGatewayResourceWeather"
+          "Ref": "ApiGatewayResourceWeatherLocationVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
       }
     },
-    "ApiGatewayMethodWeatherGet": {
+    "ApiGatewayMethodWeatherLocationVarGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceWeather"
+          "Ref": "ApiGatewayResourceWeatherLocationVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -290,7 +308,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1584134058671": {
+    "ApiGatewayDeployment1584216704353": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -299,8 +317,8 @@
         "StageName": "dev"
       },
       "DependsOn": [
-        "ApiGatewayMethodWeatherOptions",
-        "ApiGatewayMethodWeatherGet"
+        "ApiGatewayMethodWeatherLocationVarOptions",
+        "ApiGatewayMethodWeatherLocationVarGet"
       ]
     },
     "WeatherLambdaPermissionApiGateway": {
@@ -350,7 +368,7 @@
     "WeatherLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "WeatherLambdaVersionJiDP1H5QrcmbEVmx4WBgt5RQuwzNngpyuC62fZEo"
+        "Ref": "WeatherLambdaVersionBsqcLUlvLNnhFsE3BD7ZsiEHuWdifFurHaCs3fPo"
       }
     },
     "ServiceEndpoint": {

@@ -1,11 +1,15 @@
 
 service: weather-app-backend
+plugins:
+  - serverless-dotenv-plugin
 org: pack-an-umbrella 
 
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-2 
+  region: eu-west-2
+  environment:
+     API_KEY: ${file(./config.${self:provider.stage}.json):db_host}
 
 
 # you can add statements to the Lambda function's IAM Role here
@@ -24,24 +28,14 @@ provider:
 #            - "Ref" : "ServerlessDeploymentBucket"
 #            - "/*"
 
-
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
-
 functions:
   weather: 
     handler: handler.weather
     events:
       - http:
-         path: weather
-         method: get 
-         cors: true 
+         path: weather/{location}
+         method: get
+         cors: true
 # 
 #      - cloudwatchEvent:
 #          event:
@@ -52,20 +46,4 @@ functions:
 #            detail:
 #              state:
 #                - pending
-#     
-
-#    Define function environment variables here
-#    environment:
-#      variable2: value2
-
-# you can add CloudFormation resource templates here
-#resources:
-#  Resources:
-#    NewResource:
-#      Type: AWS::S3::Bucket
-#      Properties:
-#        BucketName: my-new-bucket
-#  Outputs:
-#     NewOutput:
-#       Description: "Description for the output"
-#       Value: "Some output value"
+#    
