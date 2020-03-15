@@ -28,4 +28,7 @@ Finally, make sure your dependencies are up to date, to do this: `npm install`
 Please note, the Met Office API is unsupported. Further documentation can be found here: https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/data/datapoint_api_reference.pdf
 
 
-<!-- The LOC_ID is hardcoded for now, but once we have the submit button connected to an API, this will change. -->
+## How to run the app
+
+First make sure your dependencies are up to date, to do this:
+```npm install```
