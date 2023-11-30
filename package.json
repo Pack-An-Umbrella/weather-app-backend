@@ -21,7 +21,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
-    "serverless": "^1.66.0",
+    "serverless": "^2.41.2",
     "serverless-http": "^2.3.2"
   },
   "devDependencies": {
